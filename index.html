@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         * {
             margin: 0;
@@ -356,7 +357,8 @@
         <div>
             <h2>My Portfolio</h2>
         </div>
-        <div>
+        <div style="display: flex; align-items: center; column-gap: 16px;">
+            <i class="fa-solid fa-volume-xmark" style="cursor: pointer;" onclick="handleAudio()" ></i>
             <ul>
                 <li><a href="#about">About Me</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -459,6 +461,11 @@
         <video src="./video.mp4" controls autoplay muted loop></video>
     </section>  
 
+    <audio controls loop id="sound" >
+        <source src="./bg_audio.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
     <!-- Contact Section -->
     <section id="contact">
         <h1>Contact Me</h1>
@@ -477,5 +484,23 @@
     </footer>
 
 </body>
+<script>
+    function handleAudio () {
+
+        let icon = document.querySelector('.fa-solid')
+        let audio = document.getElementById('sound')
+        
+        if (audio.paused) {
+            audio.play()
+            icon.classList.add("fa-volume-high")
+            icon.classList.remove("fa-volume-xmark")
+        }else{
+            audio.pause()
+            icon.classList.add("fa-volume-xmark")
+            icon.classList.remove("fa-volume-high")
+        }
+
+    }
+</script>
 
 </html>
