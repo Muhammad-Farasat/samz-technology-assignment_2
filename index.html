@@ -5,361 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
-            color: white;
-            line-height: 1.6;
-        }
-
-        h1,
-        h2,
-        h3,
-        p,
-        a {
-            margin: 0;
-            padding: 0;
-        }
-
-        nav {
-            height: max-content;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            background: rgba(0, 0, 0, 0.5);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 12px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        nav h2 {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffdd57;
-            text-shadow: 0 0 5px rgba(255, 221, 87, 0.5);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 24px;
-            font-size: 16px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: 500;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #ffdd57;
-            transform: scale(1.1);
-        }
-
-        section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        section h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #ffdd57;
-            text-shadow: 0 0 10px rgba(255, 221, 87, 0.5);
-        }
-
-        section p {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #e0e0e0;
-        }
-
-        .scroll-down {
-            font-size: 24px;
-            animation: bounce 2s infinite;
-            color: #ffdd57;
-        }
-
-        #about {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            padding: 40px;
-            max-width: 800px;
-            margin: 0 auto;
-            backdrop-filter: blur(10px);
-        }
-
-        #about h3 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #ffdd57;
-            text-shadow: 0 0 10px rgba(255, 221, 87, 0.5);
-        }
-
-        #about p {
-            font-size: 18px;
-            color: #e0e0e0;
-        }
-
-        #projects {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 60px 20px;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
-        }
-
-        .project-card h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #ffdd57;
-            text-shadow: 0 0 10px rgba(255, 221, 87, 0.5);
-        }
-
-        .project-card p {
-            font-size: 16px;
-            color: #e0e0e0;
-            margin-bottom: 20px;
-        }
-
-        .project-card a {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #ffdd57;
-            color: #1a1a1a;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .project-card a:hover {
-            background: #ffcc00;
-            transform: scale(1.05);
-        }
-
-        #skills {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 60px 20px;
-        }
-
-        .skills-table {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            border-collapse: collapse;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        .skills-table th,
-        .skills-table td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .skills-table th {
-            font-size: 20px;
-            color: #ffdd57;
-            text-shadow: 0 0 10px rgba(255, 221, 87, 0.5);
-        }
-
-        .skills-table td {
-            font-size: 16px;
-            color: #e0e0e0;
-        }
-
-        #contact {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 60px 20px;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 16px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: #e0e0e0;
-        }
-
-        .contact-form button {
-            padding: 10px 20px;
-            background: #ffdd57;
-            color: #1a1a1a;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .contact-form button:hover {
-            background: #ffcc00;
-            transform: scale(1.05);
-        }
-
-        section:first-of-type {
-            background: linear-gradient(-45deg, #1a1a1a, #2c3e50, #1a1a1a, #2c3e50);
-            background-size: 400% 400%;
-        }
-
-        Video Section */
-        #video-section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            margin: 20px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        #video-section h3 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #ffdd57;
-            text-shadow: 0 0 10px rgba(255, 221, 87, 0.5);
-        }
-
-        #video-section video {
-            width: 100%;
-            max-width: 800px;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        #video-section video:hover {
-            transform: scale(1.02);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
-        }
-
-        footer {
-            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 16px;
-            font-weight: 500;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            z-index: -1;
-        }
-
-        footer span {
-            color: #ffdd57;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        footer:hover span {
-            color: #ffcc00;
-        }
-
-        footer a {
-            color: #ffdd57;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #ffcc00;
-        }
-
-    </style>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
     <!-- Navigation Bar -->
-    <nav>
+    <nav id="navbar">
         <div>
-            <h2>My Portfolio</h2>
+            <h2 id="websiteName">My Portfolio</h2>
         </div>
         <div style="display: flex; align-items: center; column-gap: 16px;">
-            <i class="fa-solid fa-volume-xmark" style="cursor: pointer;" onclick="handleAudio()" ></i>
-            <ul>
+            <i class="fa-solid fa-volume-xmark" style="cursor: pointer;" onclick="handleAudio()"></i>
+            <ul id="list">
                 <li><a href="#about">About Me</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -369,7 +33,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section>
+    <section id="hero">
         <div>
             <h1>Welcome To My Portfolio</h1>
             <p style="margin-top: 20px;">Scroll down <span class="scroll-down">&#x25BC;</span></p>
@@ -380,45 +44,50 @@
     <section id="about">
         <h3>About Me</h3>
         <p>
-            Hi! I'm a passionate developer who loves creating meaningful web applications.
-            I specialize in front-end development and enjoy turning ideas into beautiful, functional websites.
+            Hello! I'm Muhammad Farasat, currently working as an intern at Samz Technology. I'm passionate
+            about learning and growing in the tech industry. I am pursing a degree in Bachelor's of Software Engineering.
+            I am always eager to learn, adapt, and grow in the ever-evolving tech landscape. 
+            My goal is to work on innovative projects, contribute to open-source.
         </p>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
+        
         <h1>My Projects</h1>
+       
         <div class="project-grid">
             <!-- Project 1 -->
             <div class="project-card">
-                <h3>Project 1: E-Commerce Website</h3>
+                <h3>E-Commerce Website</h3>
                 <p>
-                    A fully functional e-commerce website built with React and Node.js. Features include user
+                    A fully functional e-commerce website built with React and Express. Features include user
                     authentication, product search, and a shopping cart.
                 </p>
-                <a href="#" target="_blank">View Project</a>
+                <a href="https://e-commerce-frontend-ten-rho.vercel.app" target="_blank">View Project</a>
             </div>
 
             <!-- Project 2 -->
             <div class="project-card">
-                <h3>Project 2: Portfolio Website</h3>
+                <h3>Blogging Website</h3>
                 <p>
-                    A personal portfolio website showcasing my skills, projects, and contact information. Built with
-                    HTML, CSS, and JavaScript.
+                    A fully functional blogging wesite built with React and Express. Features include user authentication, adding, deleting,
+                    updating blogs, like and dislike also comment on any blog.
                 </p>
-                <a href="#" target="_blank">View Project</a>
+                <a href="https://react-blog-gray-eight.vercel.app" target="_blank">View Project</a>
             </div>
 
             <!-- Project 3 -->
             <div class="project-card">
-                <h3>Project 3: Weather App</h3>
+                <h3>Weather App</h3>
                 <p>
                     A weather application that provides real-time weather updates using a third-party API. Built with
-                    React and Tailwind CSS.
+                    React and Tailwind CSS. It is <b>Dummy</b>
                 </p>
                 <a href="#" target="_blank">View Project</a>
             </div>
         </div>
+
     </section>
 
     <!-- Skills Section -->
@@ -459,9 +128,9 @@
     <section id="video-section">
         <h3>HTML In 100 Seconds</h3>
         <video src="./video.mp4" controls autoplay muted loop></video>
-    </section>  
+    </section>
 
-    <audio controls loop id="sound" >
+    <audio controls loop id="sound">
         <source src="./bg-audio.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
@@ -478,28 +147,27 @@
     </section>
 
     <footer>
-        &copy; 2025 <span>Muhammad Farasat</span>. All rights reserved. | 
-        <a href="https://github.com/muhammad-farasat" target="_blank">GitHub</a> | 
+        &copy; 2025 <span>Muhammad Farasat</span>. All rights reserved. |
+        <a href="https://github.com/muhammad-farasat" target="_blank">GitHub</a> |
         <a href="https://linkedin.com/in/muhammad-farasat1" target="_blank">LinkedIn</a>
     </footer>
 
 </body>
-<script>
-    function handleAudio () {
 
+<script>
+    function handleAudio() {
         let icon = document.querySelector('.fa-solid')
         let audio = document.getElementById('sound')
-        
+
         if (audio.paused) {
             audio.play()
             icon.classList.add("fa-volume-high")
             icon.classList.remove("fa-volume-xmark")
-        }else{
+        } else {
             audio.pause()
             icon.classList.add("fa-volume-xmark")
             icon.classList.remove("fa-volume-high")
         }
-
     }
 </script>
 
